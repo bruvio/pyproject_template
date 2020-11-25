@@ -1,0 +1,24 @@
+{
+    "editor.formatOnSave": true,
+    "[sql]": {
+        "editor.formatOnSave": false
+    },
+    "files.trimTrailingWhitespace": true,
+    "python.pythonPath": "$ENVIRONMENT_IF_NOT_SET/bin/python",
+    "python.analysis.extraPaths": [
+        "src"
+    ],
+    "python.sortImports.args": [
+        "-sp isort.cfg",
+        "--float-to-top"
+    ],
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.linting.pylintCategorySeverity.refactor": "Information",
+    "python.linting.pylintEnabled": true
+}
