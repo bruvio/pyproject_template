@@ -49,7 +49,18 @@ export VERSION_IF_NOT_SET=$VERSION
 . temp.yml
 rm temp.yml
 
+( echo "cat <<EOF >Dockerfile";
+  cat Dockerfile;
+) >temp.yml
+. temp.yml
+rm temp.yml
 
+
+( echo "cat <<EOF >pytest.dockerfile";
+  cat pytest.dockerfile;
+) >temp.yml
+. temp.yml
+rm temp.yml
 
 
 echo Done
