@@ -23,15 +23,25 @@ PYTHON=$(which $PYTHON_VERSION) || {
 }
 
 ENVIRONMENT_DIR=.env$VERSION
-
+echo "setting up Python $VERSION virtual enviroment"
 $PYTHON -m venv $ENVIRONMENT_DIR \
 && . ./$ENVIRONMENT_DIR/bin/activate \
 && python -m pip install --upgrade pip \
 && python -m pip install -r requirements-dev.txt -c constraints.txt \
 && python -m pip install -r requirements.txt -c constraints.txt
 
+
+
 grep -w -q $ENVIRONMENT_DIR .gitignore || echo /$ENVIRONMENT_DIR >> .gitignore
-sed -i s/'$ENVIRONMENT_IF_NOT_SET'/$ENVIRONMENT_DIR/ .vscode/settings.json
+
+export ENVIRONMENT_IF_NOT_SET=$ENVIRONMENT_DIR
+( echo "cat <<EOF >.vscode/settings.json";
+  cat .vscode/settings.json;
+) >temp.yml
+. temp.yml
+rm temp.yml
+
+
 
 echo Done
 echo Restart the shell to activate environment
