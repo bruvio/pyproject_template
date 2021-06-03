@@ -3,6 +3,6 @@ pylint
 rope
 isort
 pytest
-precommit
+pre-commit
 flake8
 ipykernel
