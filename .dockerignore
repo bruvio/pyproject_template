@@ -1,7 +1,6 @@
 .git/
 .idea/
 .cache
-.env3.8/
 **/.git
 **/.github/
 .idea/
