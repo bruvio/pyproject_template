@@ -20,10 +20,6 @@ repos:
     rev: 4.3.21
     hooks:
     -   id: isort
--   repo: https://github.com/timothycrosley/isort
-    rev: 4.3.21
-    hooks:
-    -   id: isort
 -   repo: https://github.com/awslabs/cfn-python-lint
     rev: v0.15.0 # The version of cfn-lint to use
     hooks:
