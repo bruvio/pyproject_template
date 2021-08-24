@@ -17,9 +17,10 @@ repos:
     hooks:
     - id: flake8
 -   repo: https://github.com/timothycrosley/isort
-    rev: 4.3.21
+    rev: 5.9.3
     hooks:
     -   id: isort
+    args: ["--profile", "black", "--filter-files"]
 -   repo: https://github.com/awslabs/cfn-python-lint
     rev: v0.15.0 # The version of cfn-lint to use
     hooks:
