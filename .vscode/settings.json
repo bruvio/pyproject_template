@@ -67,8 +67,8 @@
   "todohighlight.keywords": [
     {
         "text": "todo:",
-        "color": "#000000",
-        "backgroundColor": "DarkKhaki",
+        "color": "#333",
+        "backgroundColor": "#2ecc71",
         "overviewRulerColor": "DarkKhaki",
         "border": "1px solid DarkKhaki",
         "borderRadius": "3px",
