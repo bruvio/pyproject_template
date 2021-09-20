@@ -28,6 +28,7 @@ $PYTHON -m venv $ENVIRONMENT_DIR \
 && . ./$ENVIRONMENT_DIR/bin/activate \
 && python -m pip install --upgrade pip \
 && python -m pip install -r requirements-dev.txt -c constraints.txt \
+&& python -m pip install black \
 && python -m pip install -r requirements.txt -c constraints.txt
 
 
