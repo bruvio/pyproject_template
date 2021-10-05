@@ -2,14 +2,16 @@
 # Helper scripts for working with Docker image and container.
 
 # Variables
-IMAGE_NAME="xxxxxxx"
-CONTAINER_NAME="xxxxxx"
+
+IMAGE_NAME=$2
+
+CONTAINER_NAME=${2-$IMAGE_NAME}
 AWS_REGION="us-east-1"
 accountid=$(aws sts get-caller-identity --query Account --output text)
 
 REPOSITORY_PATH=$accountid".dkr.ecr.us-east-1.amazonaws.com"
 FULLY_QUALIFIED_IMAGE_NAME=$REPOSITORY_PATH"/"$IMAGE_NAME
-HOST_PORT=9999
+HOST_PORT=8000
 CONTAINER_PORT=8000  # check docker file for exposed port!
 
 accountid=$(aws sts get-caller-identity --query Account --output text)
@@ -43,7 +45,9 @@ pushImage () {
 }
 
 createRepo () {
-    aws ecr create-repository --repository-name $IMAGE_NAME
+    aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $accountid.dkr.ecr.$AWS_REGION.amazonaws.com
+    aws ecr create-repository --repository-name $IMAGE_NAME --image-scanning-configuration scanOnPush=true \
+    --region $AWS_REGION
     echo Created ECR repository: $IMAGE_NAME.
 }
 
