@@ -1,4 +1,3 @@
-black
 rope
 isort
 pytest
@@ -7,4 +6,4 @@ flake8
 ipykernel
 lice
 pep8-naming
-decouple-python
+python-decouple

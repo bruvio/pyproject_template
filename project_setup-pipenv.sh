@@ -26,7 +26,8 @@ ENVIRONMENT_DIR="venv"
 export ENVIRONMENT_DIR="venv"
 echo "setting up Python $VERSION virtual enviroment"
 pipenv --python $VERSION \
-&& pipenv install -r requirements-dev.txt --dev
+&& pipenv install -r requirements-dev.txt --dev \
+&& pipenv install black --pre 
 
 
 grep -w -q $ENVIRONMENT_DIR .gitignore || echo /$ENVIRONMENT_DIR >> .gitignore
