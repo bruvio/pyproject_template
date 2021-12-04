@@ -9,7 +9,6 @@ repos:
     -   id: check-executables-have-shebangs
     -   id: check-json
     -   id: check-yaml
-    -   id: detect-aws-credentials
     -   id: detect-private-key
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
@@ -19,6 +18,7 @@ repos:
     rev: 21.5b1
     hooks:
     - id: black
+      args: ["--line-length","79"]
 -   repo: https://gitlab.com/pycqa/flake8
     rev: 3.9.2
     hooks:
